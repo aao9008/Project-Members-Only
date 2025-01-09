@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :username, presence: true, uniqueness: true
+
   # Establish bi-directional association with Post model
   has_many :posts, inverse_of: "author", foreign_key: "author_id"
 end
