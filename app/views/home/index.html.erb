@@ -1,0 +1,12 @@
+<h1>Welcome to My Application</h1>
+
+<% if user_signed_in? %>
+  <p>
+    Welcome, <%= current_user.username %>!
+    <%= button_to 'Logout', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to log out?' } %>
+  </p>
+  
+<% else %>
+  <p>Welcome, Guest!</p>
+<% end %>
+
