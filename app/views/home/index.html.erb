@@ -3,7 +3,7 @@
 <% if user_signed_in? %>
   <p>
     Welcome, <%= current_user.username %>!
-    <%= button_to 'Logout', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to log out?' } %>
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { turbo_confirm: "Are you sure?", turbo_method: :delete } %>
   </p>
   
 <% else %>
