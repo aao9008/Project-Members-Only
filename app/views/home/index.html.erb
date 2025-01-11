@@ -8,5 +8,9 @@
   
 <% else %>
   <p>Welcome, Guest!</p>
+  <p>
+    <%= link_to "Login", new_user_session_path, method: :get %>
+    <%= link_to "Sign up", new_user_registration_path, method: :get %>
+  </p>
 <% end %>
 
