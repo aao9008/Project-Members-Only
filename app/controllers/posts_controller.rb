@@ -10,11 +10,15 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:success] = "Great! Your post has been created!"
-      redirect_to new_post_path
+      redirect_to posts_path
     else
       flash[:error] = "Rats, fix your mistakes please."
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def index
+    @posts = Post.all
   end
 
   protected

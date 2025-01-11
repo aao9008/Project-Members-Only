@@ -1,0 +1,29 @@
+<h1>Posts</h1>
+<div>
+    <% unless @posts %>
+       <p>
+            <%= "There are no posts" %>
+       </p> 
+    <% else %>
+        <% @posts.each do |post| %>
+            <div>
+                <h3>
+                    <%= post.title %>
+                </h3>
+                <p>
+                    <%= post.body %>
+                </p>
+                <p>
+                    Created by: 
+                    <% if user_signed_in? %>
+                        <%=  post.author.username %>
+                    <% elsif !user_signed_in? %>
+                        <%= "Anonymous" %>
+                    <% end %>
+                </p>
+            </div>
+        <% end %>
+    <% end %>
+
+
+</div>
