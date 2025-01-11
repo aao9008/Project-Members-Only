@@ -12,4 +12,21 @@
     <div>
         <%= form.submit %>
     </div>
+
+    <% if flash[:success] %>
+        <div>
+            <%= flash[:success] %>
+        </div>
+    <% end %>
+
+    <% if flash[:error] %>
+        <div>
+            <%= flash[:error] %>
+        </div>
+        <ul>
+            <% @post.errors.full_messages.each do |error| %>
+                <li> <%= error %> </li>
+            <% end %>
+        </ul>
+    <% end %>
 <% end %>
